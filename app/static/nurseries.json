@@ -1,0 +1,5 @@
+[
+  {"id":"1", "name":"Some nursery", "owner": {"id":"1", "name":"Bill"}},
+  {"id":"2", "name": "Another nursery", "owner":{"id":"2", "name":"Fred"}},
+  {"id":"3", "name": "A third nursery", "owner":{"id":"3", "name":"Henry"}}
+]
