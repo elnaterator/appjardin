@@ -10,7 +10,7 @@ var app = angular
 
 // App Config
 app.constant('conf', {
-  backend: 'http://naterator-dreamfactory.herokuapp.com:80/rest'
+  backend: 'http://localhost:8080'
 });
 
 app.config(function($routeProvider, $httpProvider) {
@@ -30,6 +30,6 @@ app.config(function($routeProvider, $httpProvider) {
     });
 
   // Default headers
-  $httpProvider.defaults.headers.common['X-DreamFactory-Application-Name'] = 'testapp';
+  //$httpProvider.defaults.headers.common['X-DreamFactory-Application-Name'] = 'testapp';
 
 });

@@ -2,25 +2,45 @@
 
 var app = angular.module('MainApp');
 
-app.controller('MainCtrl', function($scope, $resource, conf) {
+app.controller('MainCtrl', function($scope, Nursery) {
 
-  console.log(conf);
-  var Nursery = $resource(conf.backend + '/db/nurseries/:id', {}, {
-    'all': {
-      method: 'GET',
-      isArray: false
-    }
-  });
+  $scope.nurseries = [{name: 'nursery'}];
 
-  $scope.getNurseries = function() {
+  var Nursery = {
+    all: function() {
+
+    },
+    add: function() {
+      var nm = $scope.newNursery;
+      console.log(nm);
+      var nursery = { name: nm };
+      $scope.nurseries.push(nursery);
+    },
+    delete: function() {
+      console.log("delete");
+    },
+  };
+
+
+  function getNurseries() {
     $scope.isLoading = true;
     var response = Nursery.all(function() {
-      console.log(response.record);
-      $scope.nurseries = response.record;
+      console.log(response);
+      $scope.nurseries = response;
       $scope.isLoading = false;
     });
   };
 
+  function addNursery() {
+    Nursery.add();
+  }
+
+  $scope.addNursery = addNursery;
+  $scope.getNurseries = getNurseries;
+
   $scope.isLoading = false;
+
+  getNurseries();
+
 
 });

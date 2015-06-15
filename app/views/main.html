@@ -1,16 +1,16 @@
 <h1>Nurseries</h1>
 
-<table class="table">
-  <th>id</th>
-  <th>name</th>
-  <th>owner</th>
-  <tr ng-repeat="n in nurseries">
-    <td ng-bind="n.id"></td>
-    <td><a ng-href="#/nursery/{{n.id}}" ng-bind="n.name"></a></td>
-    <td ng-bind="n.owner.name"></td>
-  </tr>
-</table>
+<!-- Add surgery -->
+<div>
+  <input ng-model="newNursery" />
+  <button ng-click="addNursery()">Add</button>
+</div>
 
+<ul ng-repeat="n in nurseries">
+  <li ng-bind="n.name"></li>
+</ul>
 
-<button ng-click="getNurseries()" class="btn">Get Nurseries</button>
-<span ng-show="isLoading">Loading...</span>
+<div>
+  <button ng-click="getNurseries()">Refresh</button>
+  <span ng-show="isLoading">Loading...</span>
+</div>
