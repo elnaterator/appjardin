@@ -4,7 +4,7 @@ var app = angular.module('MainApp');
 
 app.controller('MainCtrl', function($scope, Nursery) {
 
-  $scope.nurseries = [{name: 'nursery'}];
+  $scope.nurseries = [];
 
   var Nursery = {
     all: function() {
